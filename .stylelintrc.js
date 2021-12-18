@@ -2,6 +2,7 @@ module.exports = {
     plugins: ['stylelint-order'],
     extends: ['stylelint-config-standard', 'stylelint-config-rational-order'],
     rules: {
+        'custom-property-empty-line-before': 'never',
         'no-descending-specificity': null,
         'max-nesting-depth': [
             3,
@@ -27,22 +28,6 @@ module.exports = {
             {
                 type: 'rule',
                 selector: '^&::(before|after)'
-            },
-            {
-                type: 'rule',
-                selector: '^&:\\w'
-            },
-            {
-                type: 'rule',
-                selector: '^&__'
-            },
-            {
-                type: 'rule',
-                selector: '^&_'
-            },
-            {
-                type: 'rule',
-                selector: '^.'
             }
         ]
     }
