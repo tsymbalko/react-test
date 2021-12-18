@@ -1,26 +1,22 @@
 module.exports = {
-    env: {
-        browser: true,
-        commonjs: true,
-        es6: true,
-        jest: true,
-        node: true
+  env: {
+    browser: true,
+    es6: true,
+    jest: true
+  },
+  extends: ['react-app', 'react-app/jest'],
+  parser: 'babel-eslint',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true
     },
-    extends: [],
-    parser: "babel-eslint",
-    parserOptions: {
-        ecmaFeatures: {
-            jsx: true
-        },
-        ecmaVersion: 2018,
-        sourceType: "module"
-    },
-    plugins: [],
-    root: true,
-    rules: {},
-    settings: {
-        react: {
-            version: "detect"
-        }
+    ecmaVersion: 2018,
+    sourceType: 'module'
+  },
+  root: true,
+  settings: {
+    react: {
+      version: 'detect'
     }
-};
+  }
+}

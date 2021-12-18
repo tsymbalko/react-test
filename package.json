@@ -16,14 +16,9 @@
     "styled-system": "^5.0.18"
   },
   "devDependencies": {
-    "autoprefixer": "^10.2.6",
     "eslint": "^7.26.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^3.4.0",
     "husky": "^1.2.1",
     "lint-staged": "^11.0.0",
-    "postcss-nested": "^5.0.5",
-    "postcss-stack": "^4.0.1",
     "prettier": "^2.3.0",
     "stylelint": "^13.13.1",
     "stylelint-config-rational-order": "^0.1.2",
@@ -38,12 +33,6 @@
     "prettier": "prettier --write -l 'src/**/*.{js,jsx}'",
     "eslint": "eslint --cache src",
     "stylelint": "stylelint 'src/**/*.{js,jsx}' --fix"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
