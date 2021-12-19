@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
+import { CSSTransition } from 'react-transition-group'
 
 import {
   MenuWrapper,
@@ -10,7 +11,6 @@ import {
   MenuBtn,
   MenuIcon
 } from './style'
-
 import useComponentVisible from '../../../helper/useComponentVisible'
 
 const DropdownItem = ({ icon, children, onClick }) => (
@@ -23,6 +23,7 @@ const DropdownItem = ({ icon, children, onClick }) => (
 )
 
 const Dropdown = ({ children, trigger }) => {
+  const nodeRef = useRef(null)
   const { ref, isComponentVisible, setIsComponentVisible } =
     useComponentVisible(false)
   const closeMenu = () => setIsComponentVisible(false)
@@ -31,8 +32,15 @@ const Dropdown = ({ children, trigger }) => {
   return (
     <Wrapper ref={ref}>
       {React.cloneElement(trigger, { onClick: toggleMenu })}
-      {isComponentVisible && (
-        <MenuWrapper>
+      <CSSTransition
+        nodeRef={nodeRef}
+        in={isComponentVisible}
+        timeout={300}
+        appear
+        unmountOnExit
+        classNames="fade-in-up"
+      >
+        <MenuWrapper ref={nodeRef}>
           <CloseBtn
             icon={'close'}
             variant={'ghost'}
@@ -44,7 +52,7 @@ const Dropdown = ({ children, trigger }) => {
           </CloseBtn>
           <Menu role={'menu'}>{children}</Menu>
         </MenuWrapper>
-      )}
+      </CSSTransition>
     </Wrapper>
   )
 }

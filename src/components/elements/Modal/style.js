@@ -27,6 +27,24 @@ export const Wrapper = styled.div`
     opacity: 0.3;
     content: '';
   }
+
+  &.fade-in-up-enter {
+    opacity: 0;
+  }
+
+  &.fade-in-up-enter-active {
+    opacity: 1;
+    transition: opacity 200ms;
+  }
+
+  &.fade-in-up-exit {
+    opacity: 1;
+  }
+
+  &.fade-in-up-exit-active {
+    opacity: 0;
+    transition: opacity 200ms;
+  }
 `
 
 export const Content = styled.div`
@@ -39,6 +57,27 @@ export const Content = styled.div`
   border-radius: 0.4rem;
   transform-origin: 50% 0;
   ${maxWidth}
+  .fade-in-up-enter & {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+
+  .fade-in-up-enter-active & {
+    transform: translateY(0);
+    opacity: 1;
+    transition: opacity 300ms, transform 300ms;
+  }
+
+  .fade-in-up-exit & {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .fade-in-up-exit-active & {
+    transform: translateY(40px);
+    opacity: 0;
+    transition: opacity 300ms, transform 300ms;
+  }
 `
 
 export const Header = styled.header`

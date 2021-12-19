@@ -1,8 +1,11 @@
 import PropTypes from 'prop-types'
-import { Footer, Body, Close, Content, Header, Title, Wrapper } from './style'
 import { useEffect, useRef } from 'react'
+import { CSSTransition } from 'react-transition-group'
+
+import { Footer, Body, Close, Content, Header, Title, Wrapper } from './style'
 
 const Modal = ({ maxWidth, title, children, footer, visible, onClose }) => {
+  const nodeRef = useRef(null)
   const modalContent = useRef(null)
 
   const handleClickOutside = (event) => {
@@ -18,27 +21,33 @@ const Modal = ({ maxWidth, title, children, footer, visible, onClose }) => {
     }
   })
 
-  if (!visible) {
-    return null
-  }
   return (
-    <Wrapper>
-      <Content maxWidth={maxWidth} ref={modalContent}>
-        <Header>
-          {title && <Title>{title}</Title>}
-          <Close
-            variant={'ghost'}
-            shape={'square'}
-            icon={'close'}
-            onClick={onClose}
-          >
-            Close modal
-          </Close>
-        </Header>
-        <Body>{children}</Body>
-        {footer && <Footer>{footer}</Footer>}
-      </Content>
-    </Wrapper>
+    <CSSTransition
+      nodeRef={nodeRef}
+      in={visible}
+      timeout={300}
+      appear
+      unmountOnExit
+      classNames="fade-in-up"
+    >
+      <Wrapper ref={nodeRef}>
+        <Content maxWidth={maxWidth} ref={modalContent}>
+          <Header>
+            {title && <Title>{title}</Title>}
+            <Close
+              variant={'ghost'}
+              shape={'square'}
+              icon={'close'}
+              onClick={onClose}
+            >
+              Close modal
+            </Close>
+          </Header>
+          <Body>{children}</Body>
+          {footer && <Footer>{footer}</Footer>}
+        </Content>
+      </Wrapper>
+    </CSSTransition>
   )
 }
 

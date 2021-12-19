@@ -16,6 +16,28 @@ export const MenuWrapper = styled.div`
   background: var(--white);
   border-radius: 0.2rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  &.fade-in-up-enter {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+
+  &.fade-in-up-enter-active {
+    transform: translateY(0);
+    opacity: 1;
+    transition: opacity 200ms, transform 200ms;
+  }
+
+  &.fade-in-up-exit {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  &.fade-in-up-exit-active {
+    transform: translateY(10px);
+    opacity: 0;
+    transition: opacity 200ms, transform 200ms;
+  }
 `
 
 export const CloseBtn = styled(Button)`
