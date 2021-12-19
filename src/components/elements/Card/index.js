@@ -4,11 +4,13 @@ import { Wrapper, Header, Icon, Extra, Title, Body, Footer } from './style'
 
 const Card = ({ children, icon, title, extra, footer, accent }) => {
   const isShowHeader = icon || title || extra
+
   return (
     <Wrapper accent={accent}>
       {isShowHeader && (
         <Header>
-          {icon && <Icon>{icon}</Icon>} <Title>{title}</Title>{' '}
+          {icon && <Icon>{icon}</Icon>}
+          <Title>{title}</Title>
           {extra && <Extra>{extra}</Extra>}
         </Header>
       )}

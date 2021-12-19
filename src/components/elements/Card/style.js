@@ -29,7 +29,7 @@ export const Header = styled.div`
   min-height: 3rem;
 `
 export const Icon = styled.div`
-  top: 3px;
+  top: 0.3rem;
   left: 0;
   flex: 0 0 auto;
   width: 5.4rem;
