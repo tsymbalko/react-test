@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import decal from './img/decal.svg'
 
 export const Wrapper = styled.div`
-  --accent-color: ${({ accentcolor }) => accentcolor};
+  --accent-color: ${({ accent }) => accent};
 
   position: relative;
   display: flex;
@@ -49,6 +49,7 @@ export const Title = styled.div`
   flex: 1 1 auto;
   padding: 0 1.2rem;
   overflow: hidden;
+  font-size: 1.4rem;
   white-space: nowrap;
   text-overflow: ellipsis;
 `

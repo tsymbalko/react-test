@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Wrapper, Header, Icon, Extra, Title, Body, Footer } from './style'
 
-const Card = ({ children, icon, title, extra, footer, accentColor }) => {
+const Card = ({ children, icon, title, extra, footer, accent }) => {
   const isShowHeader = icon || title || extra
   return (
-    <Wrapper accentColor={accentColor}>
+    <Wrapper accent={accent}>
       {isShowHeader && (
         <Header>
           {icon && <Icon>{icon}</Icon>} <Title>{title}</Title>{' '}
@@ -23,11 +23,11 @@ Card.propTypes = {
   title: PropTypes.node,
   icon: PropTypes.node,
   extra: PropTypes.node,
-  accentColor: PropTypes.string
+  accent: PropTypes.string
 }
 
 Card.defaultProps = {
-  accentColor: 'var(--grey-light)'
+  accent: 'var(--grey-light)'
 }
 
 export default Card
