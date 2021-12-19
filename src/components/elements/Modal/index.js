@@ -5,7 +5,7 @@ import { CSSTransition } from 'react-transition-group'
 import { Footer, Body, Close, Content, Header, Title, Wrapper } from './style'
 
 const Modal = ({ maxWidth, title, children, footer, visible, onClose }) => {
-  const nodeRef = useRef(null)
+  const modalWrapper = useRef(null)
   const modalContent = useRef(null)
 
   const handleClickOutside = (event) => {
@@ -23,14 +23,14 @@ const Modal = ({ maxWidth, title, children, footer, visible, onClose }) => {
 
   return (
     <CSSTransition
-      nodeRef={nodeRef}
+      nodeRef={modalWrapper}
       in={visible}
       timeout={300}
       appear
       unmountOnExit
       classNames="fade-in-up"
     >
-      <Wrapper ref={nodeRef}>
+      <Wrapper ref={modalWrapper}>
         <Content maxWidth={maxWidth} ref={modalContent}>
           <Header>
             {title && <Title>{title}</Title>}

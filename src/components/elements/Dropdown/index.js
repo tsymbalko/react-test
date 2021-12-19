@@ -23,7 +23,7 @@ const DropdownItem = ({ icon, children, onClick }) => (
 )
 
 const Dropdown = ({ children, trigger }) => {
-  const nodeRef = useRef(null)
+  const menuWrapper = useRef(null)
   const { ref, isComponentVisible, setIsComponentVisible } =
     useComponentVisible(false)
   const closeMenu = () => setIsComponentVisible(false)
@@ -33,14 +33,14 @@ const Dropdown = ({ children, trigger }) => {
     <Wrapper ref={ref}>
       {React.cloneElement(trigger, { onClick: toggleMenu })}
       <CSSTransition
-        nodeRef={nodeRef}
+        nodeRef={menuWrapper}
         in={isComponentVisible}
         timeout={300}
         appear
         unmountOnExit
         classNames="fade-in-up"
       >
-        <MenuWrapper ref={nodeRef}>
+        <MenuWrapper ref={menuWrapper}>
           <CloseBtn
             icon={'close'}
             variant={'ghost'}
