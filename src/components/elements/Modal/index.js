@@ -1,25 +1,15 @@
 import PropTypes from 'prop-types'
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { CSSTransition } from 'react-transition-group'
+import useOutsideClick from '../../../helper/useOutsideClick'
 
-import { Footer, Body, Close, Content, Header, Title, Wrapper } from './style'
+import { Wrapper, Header, Body, Content, Footer, Close, Title } from './style'
 
 const Modal = ({ maxWidth, title, children, footer, visible, onClose }) => {
   const modalWrapper = useRef(null)
   const modalContent = useRef(null)
 
-  const handleClickOutside = (event) => {
-    if (modalContent.current && !modalContent.current.contains(event.target)) {
-      onClose()
-    }
-  }
-
-  useEffect(() => {
-    document.addEventListener('click', handleClickOutside, true)
-    return () => {
-      document.removeEventListener('click', handleClickOutside, true)
-    }
-  })
+  useOutsideClick(modalContent, onClose)
 
   return (
     <CSSTransition

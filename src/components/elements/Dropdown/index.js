@@ -1,6 +1,7 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import { CSSTransition } from 'react-transition-group'
+import useOutsideClick from '../../../helper/useOutsideClick'
 
 import {
   MenuWrapper,
@@ -11,7 +12,6 @@ import {
   MenuBtn,
   MenuIcon
 } from './style'
-import useComponentVisible from '../../../helper/useComponentVisible'
 
 const DropdownItem = ({ icon, children, onClick }) => (
   <MenuItem>
@@ -24,17 +24,19 @@ const DropdownItem = ({ icon, children, onClick }) => (
 
 const Dropdown = ({ children, trigger }) => {
   const menuWrapper = useRef(null)
-  const { ref, isComponentVisible, setIsComponentVisible } =
-    useComponentVisible(false)
-  const closeMenu = () => setIsComponentVisible(false)
-  const toggleMenu = () => setIsComponentVisible(!isComponentVisible)
+  const [visible, setVisible] = useState(false)
+
+  const closeMenu = () => setVisible(false)
+  const toggleMenu = () => setVisible(!visible)
+
+  useOutsideClick(menuWrapper, closeMenu)
 
   return (
-    <Wrapper ref={ref}>
+    <Wrapper>
       {React.cloneElement(trigger, { onClick: toggleMenu })}
       <CSSTransition
         nodeRef={menuWrapper}
-        in={isComponentVisible}
+        in={visible}
         timeout={300}
         appear
         unmountOnExit
