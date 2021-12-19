@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import Icon from '../Icon'
 
 const primaryBtnStyles = css`
   color: var(--white);
@@ -18,7 +19,7 @@ const primaryBtnStyles = css`
 
 const secondaryBtnStyles = css`
   color: var(--dark);
-  border-color: var(--grey);
+  border-color: var(--grey-lightness);
 
   @media (hover: hover) {
     &:not([disabled]):hover {
@@ -45,6 +46,7 @@ const ghostBtnStyles = css`
 
 const squareBtnStyles = css`
   min-width: var(--size);
+  padding: 0;
 
   span {
     position: absolute;
@@ -61,12 +63,14 @@ const rectangleBtnStyles = css`
 `
 
 export const Btn = styled.button`
+  --size: ${({ size }) => `${size}rem`};
+
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  height: ${({ size }) => `${size}rem`};
+  height: var(--size);
   padding: 0.3rem;
   font-family: inherit;
   white-space: nowrap;
@@ -106,6 +110,11 @@ export const Btn = styled.button`
     cursor: not-allowed;
     opacity: 0.4;
   }
+`
+
+export const BtnIcon = styled(Icon)`
+  width: calc(var(--size) - 0.4rem);
+  height: calc(var(--size) - 0.4rem);
 `
 
 export const BtnText = styled.span`

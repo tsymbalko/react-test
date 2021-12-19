@@ -44,6 +44,7 @@ export const Icon = styled.div`
 `
 export const Extra = styled.div`
   flex: 0 0 auto;
+  padding-right: 0.6rem;
 `
 export const Title = styled.div`
   flex: 1 1 auto;

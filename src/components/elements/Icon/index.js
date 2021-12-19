@@ -3,13 +3,14 @@ import PropTypes from 'prop-types'
 import { Sprite } from './style'
 import iconSpriteUrl from '../../../assets/sprites/icons.svg'
 
-const Icon = ({ width, height, fill, name }) => {
+const Icon = ({ width, height, fill, name, className }) => {
   return (
     <Sprite
       viewBox="0 0 16 16"
       width={`${width}rem`}
       height={`${height}rem`}
       fill={fill}
+      className={className}
     >
       <use xlinkHref={`${iconSpriteUrl}#${name}`} />
     </Sprite>
