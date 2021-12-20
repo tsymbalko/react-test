@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
   }
 `
 
-export const Header = styled.div`
+export const Header = styled.header`
   display: flex;
   flex: 0 0 auto;
   align-items: center;
@@ -34,7 +34,7 @@ export const Body = styled.div`
   padding: 1.2rem;
 `
 
-export const Footer = styled.div`
+export const Footer = styled.footer`
   display: flex;
   gap: 0.8rem;
   align-items: center;
