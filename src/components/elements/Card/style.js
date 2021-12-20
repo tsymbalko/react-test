@@ -28,6 +28,29 @@ export const Header = styled.div`
   align-items: center;
   min-height: 3rem;
 `
+
+export const Body = styled.div`
+  flex: 1 1 auto;
+  padding: 1.2rem;
+`
+
+export const Footer = styled.div`
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 1.2rem 1.2rem;
+`
+
+export const Title = styled.div`
+  flex: 1 1 auto;
+  padding: 0 1.2rem;
+  overflow: hidden;
+  font-size: 1.4rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+`
+
 export const Icon = styled.div`
   top: 0.3rem;
   left: 0;
@@ -45,25 +68,4 @@ export const Icon = styled.div`
 export const Extra = styled.div`
   flex: 0 0 auto;
   padding-right: 0.6rem;
-`
-export const Title = styled.div`
-  flex: 1 1 auto;
-  padding: 0 1.2rem;
-  overflow: hidden;
-  font-size: 1.4rem;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-`
-
-export const Body = styled.div`
-  flex: 1 1 auto;
-  padding: 1.2rem;
-`
-
-export const Footer = styled.div`
-  display: flex;
-  gap: 0.8rem;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 0 1.2rem 1.2rem;
 `
