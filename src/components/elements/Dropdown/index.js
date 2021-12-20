@@ -12,7 +12,7 @@ import {
   MenuIcon
 } from './style'
 
-import useOutsideClick from '../../../helper/useOutsideClick'
+import useOutsideClick from '../../../utils/useOutsideClick'
 
 const DropdownItem = ({ icon, children, onClick }) => (
   <MenuItem>

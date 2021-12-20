@@ -4,13 +4,15 @@ import { CSSTransition } from 'react-transition-group'
 
 import { Wrapper, Header, Body, Content, Footer, Close, Title } from './style'
 
-import useOutsideClick from '../../../helper/useOutsideClick'
+import useOutsideClick from '../../../utils/useOutsideClick'
+import useLayoutLock from '../../../utils/useLayoutLock'
 
 const Modal = ({ maxWidth, title, children, footer, visible, onClose }) => {
   const modalWrapper = useRef(null)
   const modalContent = useRef(null)
 
   useOutsideClick(modalContent, onClose)
+  useLayoutLock(visible)
 
   return (
     <CSSTransition
@@ -22,7 +24,7 @@ const Modal = ({ maxWidth, title, children, footer, visible, onClose }) => {
       classNames="fade-in-up"
     >
       <Wrapper ref={modalWrapper}>
-        <Content maxWidth={maxWidth} ref={modalContent}>
+        <Content maxWidth={maxWidth} ref={modalContent} role={'dialog'}>
           <Header>
             {title && <Title>{title}</Title>}
             <Close

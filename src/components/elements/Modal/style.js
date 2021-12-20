@@ -9,24 +9,14 @@ export const Wrapper = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 5000;
+  z-index: 1000;
   display: flex;
   flex-direction: column;
   padding: 1rem;
   overflow-x: hidden;
   overflow-y: auto;
+  background-color: var(--dark-lightness);
   scroll-behavior: smooth;
-
-  &::before {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: var(--dark);
-    opacity: 0.3;
-    content: '';
-  }
 
   &.fade-in-up {
     &-enter {
