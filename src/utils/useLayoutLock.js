@@ -29,5 +29,5 @@ export default function useLayoutLock(visibleElement) {
         unlcokLayout()
       }
     }
-  }, [visibleElement])
+  })
 }

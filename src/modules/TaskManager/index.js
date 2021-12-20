@@ -1,15 +1,17 @@
 import { useState } from 'react'
 
-import TaskList from './components/TaskList'
-import Modal from '../../components/elements/Modal'
-import Button from '../../components/elements/Button'
-import Paragraph from '../../components/elements/Paragraph'
-import Card from '../../components/elements/Card'
-import Dropdown from '../../components/elements/Dropdown'
+import {
+  Modal,
+  Button,
+  Paragraph,
+  Card,
+  Dropdown,
+  Icon,
+  List,
+  Checkbox
+} from 'components/elements'
 import TaskData from './components/TaskData'
-import Icon from '../../components/elements/Icon'
-import List from '../../components/elements/List'
-import Checkbox from '../../components/elements/Checkbox'
+import TaskList from './components/TaskList'
 
 const TaskManager = () => {
   const [modalVisible, setModalVisible] = useState(false)

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Button from '../../../components/elements/Button'
+import Button from '../Button'
 import Icon from '../Icon'
 
 export const Wrapper = styled.div`

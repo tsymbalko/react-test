@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import { Sprite } from './style'
 
-import iconSpriteUrl from '../../../assets/sprites/icons.svg'
+import iconSpriteUrl from 'assets/sprites/icons.svg'
 
 const Icon = ({ width, height, fill, name, className }) => {
   return (

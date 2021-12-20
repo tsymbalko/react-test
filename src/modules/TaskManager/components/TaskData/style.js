@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Paragraph from '../../../../components/elements/Paragraph'
+import { Paragraph } from 'components/elements'
 
 export const Wrapper = styled.div`
   display: flex;

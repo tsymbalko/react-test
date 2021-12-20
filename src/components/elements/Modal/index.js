@@ -4,8 +4,7 @@ import { CSSTransition } from 'react-transition-group'
 
 import { Wrapper, Header, Body, Content, Footer, Close, Title } from './style'
 
-import useOutsideClick from '../../../utils/useOutsideClick'
-import useLayoutLock from '../../../utils/useLayoutLock'
+import { useOutsideClick, useLayoutLock } from 'utils'
 
 const Modal = ({ maxWidth, title, children, footer, visible, onClose }) => {
   const modalWrapper = useRef(null)
