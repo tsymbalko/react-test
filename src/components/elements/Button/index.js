@@ -1,16 +1,17 @@
 import React from 'react'
-import { Btn, BtnText, BtnIcon } from './style'
 import PropTypes from 'prop-types'
+
+import { Btn, BtnText, BtnIcon } from './style'
 
 const Button = ({
   type,
-  size,
-  children,
   icon,
   variant,
   shape,
-  disabled,
+  size,
   className,
+  children,
+  disabled,
   onClick
 }) => (
   <Btn
@@ -32,8 +33,10 @@ Button.propTypes = {
   type: PropTypes.oneOf(['button', 'reset', 'submit']),
   variant: PropTypes.oneOf(['primary', 'secondary', 'ghost']),
   className: PropTypes.string,
+  icon: PropTypes.string,
   size: PropTypes.number,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  onClick: PropTypes.func
 }
 
 Button.defaultProps = {

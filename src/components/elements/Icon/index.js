@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import { Sprite } from './style'
+
 import iconSpriteUrl from '../../../assets/sprites/icons.svg'
 
 const Icon = ({ width, height, fill, name, className }) => {
@@ -21,6 +23,7 @@ Icon.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
   fill: PropTypes.string,
+  className: PropTypes.string,
   name: PropTypes.oneOf(['more', 'edit', 'copy', 'close', 'delete', 'caution'])
 }
 

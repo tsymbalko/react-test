@@ -6,6 +6,12 @@ export const Wrapper = styled.label`
   cursor: pointer;
 `
 
+export const Label = styled.span`
+  margin-left: 0.4rem;
+  color: var(--black);
+  font-size: 1rem;
+`
+
 export const Input = styled.input`
   position: relative;
   width: 1rem;
@@ -21,6 +27,10 @@ export const Input = styled.input`
   &:disabled {
     cursor: not-allowed;
     opacity: 0.4;
+
+    & + span {
+      opacity: 0.4;
+    }
   }
 
   &:focus-visible {
@@ -31,10 +41,16 @@ export const Input = styled.input`
   &:checked {
     background-color: var(--main);
     border-color: var(--main);
+
+    &::after {
+      opacity: 1;
+    }
   }
 
-  &:hover:not(:disabled) {
-    border-color: var(--base-hover);
+  @media (hover: hover) {
+    &:hover:not(:disabled) {
+      border-color: var(--base-hover);
+    }
   }
 
   &::after {
@@ -52,18 +68,4 @@ export const Input = styled.input`
     content: '';
     pointer-events: none;
   }
-
-  &:checked::after {
-    opacity: 1;
-  }
-
-  &:disabled + span {
-    opacity: 0.4;
-  }
-`
-
-export const Label = styled.span`
-  margin-left: 0.4rem;
-  color: var(--black);
-  font-size: 1rem;
 `

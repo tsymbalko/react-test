@@ -13,6 +13,7 @@ import Checkbox from '../../components/elements/Checkbox'
 
 const TaskManager = () => {
   const [modalVisible, setModalVisible] = useState(false)
+
   const closeModal = () => setModalVisible(false)
   const openModal = () => setModalVisible(true)
 

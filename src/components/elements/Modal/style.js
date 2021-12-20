@@ -28,22 +28,24 @@ export const Wrapper = styled.div`
     content: '';
   }
 
-  &.fade-in-up-enter {
-    opacity: 0;
-  }
+  &.fade-in-up {
+    &-enter {
+      opacity: 0;
+    }
 
-  &.fade-in-up-enter-active {
-    opacity: 1;
-    transition: opacity 200ms;
-  }
+    &-enter-active {
+      opacity: 1;
+      transition: opacity 200ms;
+    }
 
-  &.fade-in-up-exit {
-    opacity: 1;
-  }
+    &-exit {
+      opacity: 1;
+    }
 
-  &.fade-in-up-exit-active {
-    opacity: 0;
-    transition: opacity 200ms;
+    &-exit-active {
+      opacity: 0;
+      transition: opacity 200ms;
+    }
   }
 `
 

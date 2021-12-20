@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import { Wrapper, Header, Icon, Extra, Title, Body, Footer } from './style'
 
 const Card = ({ children, icon, title, extra, footer, accent }) => {
@@ -22,10 +23,11 @@ const Card = ({ children, icon, title, extra, footer, accent }) => {
 
 Card.propTypes = {
   children: PropTypes.node.isRequired,
-  title: PropTypes.node,
+  title: PropTypes.string,
+  accent: PropTypes.string,
   icon: PropTypes.node,
   extra: PropTypes.node,
-  accent: PropTypes.string
+  footer: PropTypes.node
 }
 
 Card.defaultProps = {

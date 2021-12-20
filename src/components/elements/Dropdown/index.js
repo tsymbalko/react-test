@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import { CSSTransition } from 'react-transition-group'
-import useOutsideClick from '../../../helper/useOutsideClick'
 
 import {
   MenuWrapper,
@@ -12,6 +11,8 @@ import {
   MenuBtn,
   MenuIcon
 } from './style'
+
+import useOutsideClick from '../../../helper/useOutsideClick'
 
 const DropdownItem = ({ icon, children, onClick }) => (
   <MenuItem>
@@ -24,10 +25,10 @@ const DropdownItem = ({ icon, children, onClick }) => (
 
 const Dropdown = ({ children, trigger }) => {
   const menuWrapper = useRef(null)
-  const [visible, setVisible] = useState(false)
+  const [menuVisible, setMenuVisible] = useState(false)
 
-  const closeMenu = () => setVisible(false)
-  const toggleMenu = () => setVisible(!visible)
+  const closeMenu = () => setMenuVisible(false)
+  const toggleMenu = () => setMenuVisible(!menuVisible)
 
   useOutsideClick(menuWrapper, closeMenu)
 
@@ -36,7 +37,7 @@ const Dropdown = ({ children, trigger }) => {
       {React.cloneElement(trigger, { onClick: toggleMenu })}
       <CSSTransition
         nodeRef={menuWrapper}
-        in={visible}
+        in={menuVisible}
         timeout={300}
         appear
         unmountOnExit
@@ -64,6 +65,12 @@ Dropdown.Item = DropdownItem
 Dropdown.propTypes = {
   children: PropTypes.node.isRequired,
   trigger: PropTypes.node.isRequired
+}
+
+DropdownItem.protoTypes = {
+  icon: PropTypes.node,
+  children: PropTypes.node,
+  onClick: PropTypes.func
 }
 
 export default Dropdown

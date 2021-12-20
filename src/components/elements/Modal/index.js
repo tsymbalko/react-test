@@ -1,9 +1,10 @@
-import PropTypes from 'prop-types'
 import { useRef } from 'react'
+import PropTypes from 'prop-types'
 import { CSSTransition } from 'react-transition-group'
-import useOutsideClick from '../../../helper/useOutsideClick'
 
 import { Wrapper, Header, Body, Content, Footer, Close, Title } from './style'
+
+import useOutsideClick from '../../../helper/useOutsideClick'
 
 const Modal = ({ maxWidth, title, children, footer, visible, onClose }) => {
   const modalWrapper = useRef(null)
@@ -42,10 +43,12 @@ const Modal = ({ maxWidth, title, children, footer, visible, onClose }) => {
 }
 
 Modal.propTypes = {
+  children: PropTypes.node.isRequired,
+  footer: PropTypes.node,
   maxWidth: PropTypes.string,
   title: PropTypes.string,
-  children: PropTypes.node.isRequired,
-  footer: PropTypes.node
+  visible: PropTypes.bool,
+  onClose: PropTypes.func
 }
 
 Modal.defaultProps = {
