@@ -31,7 +31,7 @@ Card.propTypes = {
 }
 
 Card.defaultProps = {
-  accent: 'var(--grey-light)'
+  accent: 'transparent'
 }
 
 export default Card
