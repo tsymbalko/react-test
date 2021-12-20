@@ -33,11 +33,6 @@ export const Input = styled.input`
     }
   }
 
-  &:focus-visible {
-    outline: none;
-    box-shadow: var(--base-focus);
-  }
-
   &:checked {
     background-color: var(--main);
     border-color: var(--main);

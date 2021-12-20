@@ -86,6 +86,16 @@
         overflow: hidden;
       }
 
+      :focus {
+        box-shadow: var(--base-focus);
+        outline: none;
+        transition: box-shadow .2s;
+      }
+
+      :focus:not(:focus-visible) {
+        box-shadow: none
+      }
+
       /* custom scroll only web-kit browsers */
       ::-webkit-scrollbar {
         width: 0.4rem;

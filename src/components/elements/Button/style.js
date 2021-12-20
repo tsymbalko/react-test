@@ -100,11 +100,6 @@ export const Btn = styled.button`
     }
   }}
 
-  &:focus-visible {
-    outline: none;
-    box-shadow: var(--base-focus);
-  }
-
   &:disabled {
     color: var(--grey);
     cursor: not-allowed;
