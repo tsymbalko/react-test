@@ -26,7 +26,7 @@ export const Header = styled.div`
   display: flex;
   flex: 0 0 auto;
   align-items: center;
-  min-height: 3rem;
+  min-height: 3.1rem;
 `
 
 export const Body = styled.div`
@@ -52,15 +52,11 @@ export const Title = styled.div`
 `
 
 export const Icon = styled.div`
-  top: 0.3rem;
-  left: 0;
   flex: 0 0 auto;
   width: 5.4rem;
   height: 3.1rem;
   padding: 0.3rem 0.3rem 0 0.4rem;
   background-color: var(--accent-color);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
   mask-image: url(${decal});
   mask-size: contain;
   mask-repeat: no-repeat;
