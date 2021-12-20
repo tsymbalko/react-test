@@ -3,6 +3,7 @@ import decal from './img/decal.svg'
 
 export const Wrapper = styled.div`
   --accent-color: ${({ accent }) => accent};
+  --indent: 1.2rem;
 
   position: relative;
   display: flex;
@@ -22,7 +23,7 @@ export const Wrapper = styled.div`
   }
 `
 
-export const Header = styled.div`
+export const Header = styled.header`
   display: flex;
   flex: 0 0 auto;
   align-items: center;
@@ -31,20 +32,20 @@ export const Header = styled.div`
 
 export const Body = styled.div`
   flex: 1 1 auto;
-  padding: 1.2rem;
+  padding: var(--indent);
 `
 
-export const Footer = styled.div`
+export const Footer = styled.footer`
   display: flex;
   gap: 0.8rem;
   align-items: center;
   justify-content: flex-end;
-  padding: 0 1.2rem 1.2rem;
+  padding: 0 var(--indent) var(--indent);
 `
 
 export const Title = styled.div`
   flex: 1 1 auto;
-  padding: 0 1.2rem;
+  padding: 0 var(--indent);
   overflow: hidden;
   font-size: 1.4rem;
   white-space: nowrap;
