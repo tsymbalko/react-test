@@ -23,13 +23,13 @@ const Modal = ({ maxWidth, title, children, footer, visible, onClose }) => {
       classNames="fade-in-up"
     >
       <Wrapper ref={modalWrapper}>
-        <Content maxWidth={maxWidth} ref={modalContent} role={'dialog'}>
+        <Content maxWidth={maxWidth} ref={modalContent} role="dialog">
           <Header>
             {title && <Title>{title}</Title>}
             <Close
-              variant={'ghost'}
-              shape={'square'}
-              icon={'close'}
+              variant="ghost"
+              shape="square"
+              icon="close"
               onClick={onClose}
             >
               Close modal
@@ -56,4 +56,4 @@ Modal.defaultProps = {
   maxWidth: '47rem'
 }
 
-export default Modal
+export { Modal }

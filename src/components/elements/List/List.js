@@ -22,4 +22,4 @@ List.defaultProps = {
   gap: '0.8rem'
 }
 
-export default List
+export { List }

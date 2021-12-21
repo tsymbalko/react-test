@@ -1,11 +1,11 @@
-import DefaultTemplate from './components/templates/Default'
-import TaskManager from './modules/TaskManager'
-import { ReactComponent as Logo } from './assets/logo.svg'
+import { DefaultTemplate } from 'components/templates'
+import { Logo } from 'components/elements'
+import { TaskManager } from './modules/TaskManager/TaskManager'
 
 const App = () => {
   return (
     <DefaultTemplate>
-      <Logo width={'9.5rem'} height={'4rem'} />
+      <Logo />
       <TaskManager />
     </DefaultTemplate>
   )

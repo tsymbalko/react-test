@@ -1,33 +1,36 @@
 import { useEffect } from 'react'
 
-export default function useLayoutLock(visibleElement) {
+const useLayoutLock = (isVisible) => {
   const body = document.body
-  let topScrollCoord
+  let topScrollCoordinate
 
-  const layoutLock = () => {
-    topScrollCoord = window.scrollY
+  const lockLayout = () => {
+    topScrollCoordinate = window.scrollY
     body.classList.add('is-locked')
-    body.style.top = `-${topScrollCoord}px`
+    body.style.top = `-${topScrollCoordinate}px`
   }
 
   const unlcokLayout = () => {
     body.classList.remove('is-locked')
     body.style.top = ''
     window.scrollTo({
-      top: topScrollCoord,
+      top: topScrollCoordinate,
       behavior: 'instant'
     })
   }
 
   useEffect(() => {
-    if (visibleElement) {
-      layoutLock()
+    if (isVisible) {
+      lockLayout()
     }
 
     return () => {
-      if (visibleElement) {
+      const hasLockClass = body.classList.contains('is-locked')
+      if (hasLockClass) {
         unlcokLayout()
       }
     }
-  })
+  }, [isVisible])
 }
+
+export { useLayoutLock }

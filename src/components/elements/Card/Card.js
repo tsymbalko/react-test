@@ -34,4 +34,4 @@ Card.defaultProps = {
   accent: 'var(--grey-light)'
 }
 
-export default Card
+export { Card }

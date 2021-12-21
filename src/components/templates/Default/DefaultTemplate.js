@@ -9,4 +9,4 @@ DefaultTemplate.propTypes = {
   children: PropTypes.node.isRequired
 }
 
-export default DefaultTemplate
+export { DefaultTemplate }

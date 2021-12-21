@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { maxWidth } from 'styled-system'
 
-import Button from '../Button'
+import { Button } from '../Button/Button'
 
 export const Wrapper = styled.div`
   position: fixed;

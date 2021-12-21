@@ -21,4 +21,4 @@ Checkbox.propTypes = {
   onChange: PropTypes.func
 }
 
-export default Checkbox
+export { Checkbox }

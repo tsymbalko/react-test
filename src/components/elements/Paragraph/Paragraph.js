@@ -12,4 +12,4 @@ Paragraph.defaultProps = {
   fontSize: '1.2rem',
   color: 'var(--black)'
 }
-export default Paragraph
+export { Paragraph }

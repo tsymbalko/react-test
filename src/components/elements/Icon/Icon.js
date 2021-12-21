@@ -34,4 +34,4 @@ Icon.defaultProps = {
   name: 'copy'
 }
 
-export default Icon
+export { Icon }

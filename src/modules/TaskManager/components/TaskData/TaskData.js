@@ -31,4 +31,4 @@ TaskData.propTypes = {
   })
 }
 
-export default TaskData
+export { TaskData }

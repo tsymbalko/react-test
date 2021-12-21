@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Btn, BtnText, BtnIcon } from './style'
+import { ButtonWrapper, ButtonText, ButtonIcon } from './style'
 
 const Button = ({
   type,
@@ -14,7 +14,7 @@ const Button = ({
   disabled,
   onClick
 }) => (
-  <Btn
+  <ButtonWrapper
     type={type}
     size={size}
     disabled={disabled}
@@ -23,9 +23,9 @@ const Button = ({
     className={className}
     onClick={onClick}
   >
-    {icon && <BtnIcon name={icon} />}
-    <BtnText>{children}</BtnText>
-  </Btn>
+    {icon && <ButtonIcon name={icon} />}
+    <ButtonText>{children}</ButtonText>
+  </ButtonWrapper>
 )
 
 Button.propTypes = {
@@ -46,4 +46,4 @@ Button.defaultProps = {
   size: 2.4
 }
 
-export default Button
+export { Button }
