@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import Icon from '../Icon'
+import { Icon } from '../Icon/Icon'
 
 const primaryBtnStyles = css`
   color: var(--white);
@@ -62,7 +62,7 @@ const rectangleBtnStyles = css`
   min-width: 10rem;
 `
 
-export const Btn = styled.button`
+export const ButtonWrapper = styled.button`
   --size: ${({ size }) => `${size}rem`};
 
   position: relative;
@@ -107,12 +107,12 @@ export const Btn = styled.button`
   }
 `
 
-export const BtnIcon = styled(Icon)`
+export const ButtonIcon = styled(Icon)`
   width: calc(var(--size) - 0.4rem);
   height: calc(var(--size) - 0.4rem);
 `
 
-export const BtnText = styled.span`
+export const ButtonText = styled.span`
   padding: 0.1rem 0.3rem 0;
   color: currentColor;
   font-size: 1rem;

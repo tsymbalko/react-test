@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 
 import {
   Modal,
@@ -10,49 +10,20 @@ import {
   List,
   Checkbox
 } from 'components/elements'
-import TaskData from './components/TaskData'
-import TaskList from './components/TaskList'
+import { TaskData, TaskList } from './components'
+
+import { mockTasks } from 'utils'
 
 const TaskManager = () => {
   const [modalVisible, setModalVisible] = useState(false)
 
-  const closeModal = () => setModalVisible(false)
-  const openModal = () => setModalVisible(true)
+  const closeModal = useCallback(
+    () => setModalVisible(false),
+    [setModalVisible]
+  )
+  const openModal = useCallback(() => setModalVisible(true), [setModalVisible])
 
-  const data = [
-    {
-      id: 1,
-      title: 'Name',
-      data: [
-        {
-          text: 'orca-demo-bucket-db'
-        }
-      ]
-    },
-    {
-      id: 2,
-      title: 'Type',
-      data: [
-        {
-          text: 'AWS S3 Bucket'
-        }
-      ]
-    },
-    {
-      id: 3,
-      title: 'Tests',
-      data: [
-        {
-          text: 'ec2-14175-131-61.cc2-14175-131-61.co',
-          count: '118 / 120'
-        },
-        {
-          text: '7fe00efc-8cfc-4454',
-          count: '7 / 10'
-        }
-      ]
-    }
-  ]
+  const data = mockTasks
   const tasks = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]
 
   return (
@@ -61,27 +32,32 @@ const TaskManager = () => {
         {tasks.map(({ id }) => (
           <Card
             key={id}
-            accent={'var(--black)'}
-            title={'Data at risk'}
+            accent="var(--black)"
+            title="Data at risk"
             icon={
               <Icon
                 width={2.4}
                 height={2.4}
-                name={'caution'}
-                fill={'var(--white)'}
+                name="caution"
+                fill="var(--white)"
               />
             }
             extra={
               <Dropdown
-                trigger={
-                  <Button variant={'ghost'} icon={'more'} shape={'square'}>
+                trigger={(handler) => (
+                  <Button
+                    variant="ghost"
+                    icon="more"
+                    shape="square"
+                    onClick={handler}
+                  >
                     Button
                   </Button>
-                }
+                )}
               >
-                <Dropdown.Item icon={'copy'}>Duplicate</Dropdown.Item>
-                <Dropdown.Item icon={'edit'}>Edit</Dropdown.Item>
-                <Dropdown.Item icon={'delete'}>Delete</Dropdown.Item>
+                <Dropdown.Item icon="copy">Duplicate</Dropdown.Item>
+                <Dropdown.Item icon="edit">Edit</Dropdown.Item>
+                <Dropdown.Item icon="delete">Delete</Dropdown.Item>
               </Dropdown>
             }
             footer={<Button onClick={openModal}>Open modal</Button>}
@@ -94,64 +70,64 @@ const TaskManager = () => {
       </TaskList>
       <Modal
         visible={modalVisible}
-        title={'Lorem ipsum dolor sit amet'}
+        title="Lorem ipsum dolor sit amet"
         onClose={closeModal}
         footer={
           <>
-            <Button variant={'secondary'} onClick={closeModal}>
+            <Button variant="secondary" onClick={closeModal}>
               cancel
             </Button>
-            <Button variant={'primary'} onClick={closeModal}>
+            <Button variant="primary" onClick={closeModal}>
               accept
             </Button>
           </>
         }
       >
-        <Paragraph mb={'1.6rem'}>
+        <Paragraph mb="1.6rem">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc gravida
           cursus nibh, sit amet varius purus lacinia at. Quisque tincidunt
           efficitur tempor. Proin pellentesque dictum mauris sed lobortis. Etiam
           nec mollis elit. Fusce et lacus tincidunt sem commodo condimentum et
           id lectus.
         </Paragraph>
-        <Paragraph mb={'1.6rem'}>
+        <Paragraph mb="1.6rem">
           Curabitur in pharetra ante. Aliquam in neque tristique, fermentum elit
           dignissim, laoreet lacus. Praesent viverra erat enim. Praesent quis
           ante rutrum, lacinia tortor ut, efficitur dolor. Pellentesque vehicula
           tempus neque, ac ornare libero tempor placerat.
         </Paragraph>
-        <List mt={'1.6rem'} mb={'1.6rem'} flexDirection={'column'}>
+        <List mt="1.6rem" mb="1.6rem" flexDirection="column">
           <List.Item>
-            <Checkbox label={'Quisque tincidunt efficitur tempor'} />
+            <Checkbox label="Quisque tincidunt efficitur tempor" />
           </List.Item>
           <List.Item>
-            <Checkbox label={'Proin pellentesque dictum mauris sed lobortis'} />
+            <Checkbox label="Proin pellentesque dictum mauris sed lobortis" />
           </List.Item>
           <List.Item>
-            <Checkbox label={'Etiam nec mollis elit'} />
+            <Checkbox label="Etiam nec mollis elit" />
           </List.Item>
         </List>
-        <Paragraph mb={'0.8rem'} fontSize={'1rem'}>
+        <Paragraph mb="0.8rem" fontSize="1rem">
           Curabitur in pharetra ante. Aliquam in neque tristique, fermentum elit
           dignissim, laoreet lacus. Praesent viverra erat enim. Praesent quis
           ante rutrum, lacinia tortor ut, efficitur dolor. Pellentesque vehicula
           tempus neque, ac ornare libero tempor placerat.
         </Paragraph>
-        <Paragraph mb={'0.8rem'} fontSize={'1rem'}>
+        <Paragraph mb="0.8rem" fontSize="1rem">
           Curabitur in pharetra ante. Aliquam in neque tristique, fermentum elit
           dignissim, laoreet lacus. Praesent viverra erat enim. Praesent quis
           ante rutrum, lacinia tortor ut, efficitur dolor. Pellentesque vehicula
           tempus neque, ac ornare libero tempor placerat.
         </Paragraph>
-        <List mt={'0.8rem'} mb={'0.8rem'} flexDirection={'row'}>
+        <List mt="0.8rem" mb="0.8rem" flexDirection="row">
           <List.Item>
-            <Checkbox label={'Efficitur'} />
+            <Checkbox label="Efficitur" />
           </List.Item>
           <List.Item>
-            <Checkbox label={'Lacinia'} />
+            <Checkbox label="Lacinia" />
           </List.Item>
           <List.Item>
-            <Checkbox label={'Lacinia'} />
+            <Checkbox label="Lacinia" />
           </List.Item>
         </List>
       </Modal>
@@ -159,4 +135,4 @@ const TaskManager = () => {
   )
 }
 
-export default TaskManager
+export { TaskManager }

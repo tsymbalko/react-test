@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import { CSSTransition } from 'react-transition-group'
 
@@ -27,14 +27,17 @@ const Dropdown = ({ children, trigger }) => {
   const menuWrapper = useRef(null)
   const [menuVisible, setMenuVisible] = useState(false)
 
-  const closeMenu = () => setMenuVisible(false)
-  const toggleMenu = () => setMenuVisible(!menuVisible)
+  const closeMenu = useCallback(() => setMenuVisible(false), [setMenuVisible])
+  const toggleMenu = useCallback(
+    () => setMenuVisible(!menuVisible),
+    [menuVisible, setMenuVisible]
+  )
 
   useOutsideClick(menuWrapper, closeMenu)
 
   return (
     <Wrapper>
-      {React.cloneElement(trigger, { onClick: toggleMenu })}
+      {trigger(toggleMenu)}
       <CSSTransition
         nodeRef={menuWrapper}
         in={menuVisible}
@@ -45,15 +48,17 @@ const Dropdown = ({ children, trigger }) => {
       >
         <MenuWrapper ref={menuWrapper}>
           <CloseBtn
-            icon={'close'}
-            variant={'ghost'}
-            shape={'square'}
+            icon="close"
+            variant="ghost"
+            shape="square"
             size={1.6}
             onClick={closeMenu}
           >
             Close
           </CloseBtn>
-          <Menu role={'menu'}>{children}</Menu>
+          <Menu role="menu" onClick={closeMenu}>
+            {children}
+          </Menu>
         </MenuWrapper>
       </CSSTransition>
     </Wrapper>
@@ -64,7 +69,7 @@ Dropdown.Item = DropdownItem
 
 Dropdown.propTypes = {
   children: PropTypes.node.isRequired,
-  trigger: PropTypes.node.isRequired
+  trigger: PropTypes.func.isRequired
 }
 
 DropdownItem.protoTypes = {
@@ -73,4 +78,4 @@ DropdownItem.protoTypes = {
   onClick: PropTypes.func
 }
 
-export default Dropdown
+export { Dropdown }
