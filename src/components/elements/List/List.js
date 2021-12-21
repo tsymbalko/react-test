@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { Item, Wrapper } from './style'
+import { Item, Wrapper } from './List.styles'
 
 const List = ({ children, flexDirection, mt, mb, gap }) => (
   <Wrapper mt={mt} mb={mb} flexDirection={flexDirection} gap={gap}>

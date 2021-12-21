@@ -2,7 +2,15 @@ import { useRef } from 'react'
 import PropTypes from 'prop-types'
 import { CSSTransition } from 'react-transition-group'
 
-import { Wrapper, Header, Body, Content, Footer, Close, Title } from './style'
+import {
+  Wrapper,
+  Header,
+  Body,
+  Content,
+  Footer,
+  Close,
+  Title
+} from './Modal.styles'
 
 import { useOutsideClick, useLayoutLock } from 'utils'
 

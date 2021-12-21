@@ -1,3 +1,3 @@
-import { Logo } from './style'
+import { Logo } from './Logo.styles'
 
 export { Logo }

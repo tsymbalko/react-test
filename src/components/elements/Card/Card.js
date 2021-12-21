@@ -1,7 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Wrapper, Header, Icon, Extra, Title, Body, Footer } from './style'
+import {
+  Wrapper,
+  Header,
+  Icon,
+  Extra,
+  Title,
+  Body,
+  Footer
+} from './Card.styles'
 
 const Card = ({ children, icon, title, extra, footer, accent }) => {
   const isShowHeader = icon || title || extra

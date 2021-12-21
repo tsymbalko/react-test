@@ -10,7 +10,7 @@ import {
   MenuItem,
   MenuBtn,
   MenuIcon
-} from './style'
+} from './Dropdown.styles'
 
 import { useOutsideClick } from 'utils'
 

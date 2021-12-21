@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { ButtonWrapper, ButtonText, ButtonIcon } from './style'
+import { ButtonWrapper, ButtonText, ButtonIcon } from './Button.styles'
 
 const Button = ({
   type,

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import { Wrapper, Input, Label } from './style'
+import { Wrapper, Input, Label } from './Checkbox.styles'
 
 const Checkbox = ({ label, disabled, onChange, checked }) => (
   <Wrapper>

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import { Text } from './style'
+import { Text } from './Paragraph.styles'
 
 const Paragraph = ({ children, ...props }) => <Text {...props}>{children}</Text>
 

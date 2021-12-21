@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import { Wrapper, Title, Row, Text, Value, Content } from './style'
+import { Wrapper, Title, Row, Text, Value, Content } from './TaskData.styles'
 
 const TaskData = ({ task }) => {
   const { title, data } = task

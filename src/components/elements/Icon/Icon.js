@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Sprite } from './style'
+import { Sprite } from './Icon.styles'
 
 import iconSpriteUrl from 'assets/sprites/icons.svg'
 

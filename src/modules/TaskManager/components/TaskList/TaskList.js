@@ -1,3 +1,3 @@
-import { TaskList } from './style'
+import { TaskList } from './TaskList.style'
 
 export default { TaskList }
