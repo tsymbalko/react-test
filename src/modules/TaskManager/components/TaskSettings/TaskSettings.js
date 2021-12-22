@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 import { Button, Checkbox, List, Modal, Paragraph } from 'components/elements'
 
 const TaskSettings = ({ isVisible, onClose }) => {
@@ -66,6 +68,11 @@ const TaskSettings = ({ isVisible, onClose }) => {
       </List>
     </Modal>
   )
+}
+
+TaskSettings.propTypes = {
+  isVisible: PropTypes.bool,
+  onClose: PropTypes.func
 }
 
 export { TaskSettings }

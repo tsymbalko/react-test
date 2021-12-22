@@ -6,7 +6,7 @@ import { TaskList, Task, TaskSettings } from './components'
 import { TaskContext } from 'context'
 
 const TaskManager = () => {
-  const [modalVisible, setModalVisible] = useState(false)
+  const [isModalVisible, setModalVisible] = useState(false)
 
   const { state } = useContext(TaskContext)
   const { tasks } = state
@@ -32,7 +32,7 @@ const TaskManager = () => {
       ) : (
         <Empty description="No tasks" />
       )}
-      <TaskSettings isVisible={modalVisible} onClose={closeModal} />
+      <TaskSettings isVisible={isModalVisible} onClose={closeModal} />
     </>
   )
 }
