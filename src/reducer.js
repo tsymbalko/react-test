@@ -1,3 +1,4 @@
+import { nanoid } from 'nanoid'
 import { EDIT_TASK, DUPLICATE_TASK, DELETE_TASK } from './actions'
 
 export const taskReducer = (state, action) => {
@@ -5,7 +6,7 @@ export const taskReducer = (state, action) => {
   switch (type) {
     case DUPLICATE_TASK:
       const [currentTask] = state.tasks.filter((task) => task.id === payload.id)
-      const newTask = { ...currentTask, id: Math.random() }
+      const newTask = { ...currentTask, id: nanoid() }
 
       return {
         ...state,
