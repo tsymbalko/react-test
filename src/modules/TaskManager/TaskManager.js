@@ -14,7 +14,7 @@ import {
 import { TaskData, TaskList } from './components'
 
 import { TaskContext } from 'context'
-import { EDIT, DUPLICATE, DELETE } from 'actions'
+import { EDIT_TASK, DUPLICATE_TASK, DELETE_TASK } from 'actions'
 
 const TaskManager = () => {
   const [modalVisible, setModalVisible] = useState(false)
@@ -68,19 +68,19 @@ const TaskManager = () => {
                 >
                   <Dropdown.Item
                     icon="copy"
-                    onClick={dispatchAction(DUPLICATE, { id })}
+                    onClick={dispatchAction(DUPLICATE_TASK, { id })}
                   >
                     Duplicate
                   </Dropdown.Item>
                   <Dropdown.Item
                     icon="edit"
-                    onClick={dispatchAction(EDIT, { id })}
+                    onClick={dispatchAction(EDIT_TASK, { id })}
                   >
                     Edit
                   </Dropdown.Item>
                   <Dropdown.Item
                     icon="delete"
-                    onClick={dispatchAction(DELETE, { id })}
+                    onClick={dispatchAction(DELETE_TASK, { id })}
                   >
                     Delete
                   </Dropdown.Item>
