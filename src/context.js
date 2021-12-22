@@ -4,7 +4,7 @@ export const TaskContext = createContext()
 export const initialState = {
   tasks: [
     {
-      id: 1,
+      id: '1',
       title: 'Data at risk',
       fields: [
         {
@@ -36,11 +36,10 @@ export const initialState = {
             }
           ]
         }
-      ],
-      settings: []
+      ]
     },
     {
-      id: 2,
+      id: '2',
       title: 'Data at risk',
       fields: [
         {
@@ -68,11 +67,10 @@ export const initialState = {
             }
           ]
         }
-      ],
-      settings: []
+      ]
     },
     {
-      id: 3,
+      id: '3',
       title: 'Data at risk',
       fields: [
         {
@@ -104,11 +102,10 @@ export const initialState = {
             }
           ]
         }
-      ],
-      settings: []
+      ]
     },
     {
-      id: 4,
+      id: '4',
       title: 'Data at risk',
       fields: [
         {
@@ -136,8 +133,7 @@ export const initialState = {
             }
           ]
         }
-      ],
-      settings: []
+      ]
     }
   ]
 }

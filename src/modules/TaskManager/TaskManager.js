@@ -4,13 +4,11 @@ import {
   Modal,
   Button,
   Paragraph,
-  Card,
-  Icon,
   List,
   Checkbox,
   Empty
 } from 'components/elements'
-import { TaskData, TaskList, TaskActions } from './components'
+import { TaskList, Task } from './components'
 
 import { TaskContext } from 'context'
 
@@ -30,26 +28,12 @@ const TaskManager = () => {
     <>
       {tasks.length > 0 ? (
         <TaskList>
-          {tasks.map(({ id, ...task }) => (
-            <Card
-              key={id}
-              accent="var(--black)"
-              title="Data at risk"
-              icon={
-                <Icon
-                  width={2.4}
-                  height={2.4}
-                  name="caution"
-                  fill="var(--white)"
-                />
-              }
-              extra={<TaskActions id={id} />}
+          {tasks.map((task) => (
+            <Task
+              key={task.id}
+              task={task}
               footer={<Button onClick={openModal}>Open modal</Button>}
-            >
-              {task.fields.map((field) => (
-                <TaskData key={field.title} taskData={field} />
-              ))}
-            </Card>
+            />
           ))}
         </TaskList>
       ) : (
