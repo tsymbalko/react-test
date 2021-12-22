@@ -52,15 +52,10 @@ export const MenuWrapper = styled.div`
 export const Menu = styled.ul`
   margin: 0;
   padding: 0;
-  list-style: none;
 `
 
 export const MenuItem = styled.li`
-  margin-bottom: 0.4rem;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
+  list-style: none;
 `
 
 export const MenuBtn = styled.button`
@@ -68,7 +63,7 @@ export const MenuBtn = styled.button`
   gap: 0.2rem;
   align-items: center;
   width: 100%;
-  padding: 0 0.8rem;
+  padding: 0.2rem 0.8rem;
   color: var(--dark);
   font-weight: 300;
   font-size: 1rem;
