@@ -1,3 +1,1 @@
-import { TaskList } from './TaskList.style'
-
-export { TaskList }
+export { TaskList } from './TaskList.style'
