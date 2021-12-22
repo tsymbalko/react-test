@@ -4,8 +4,9 @@ export const taskReducer = (state, action) => {
   const { type, payload } = action
   switch (type) {
     case DUPLICATE:
-      const currentTask = state.tasks.filter((task) => task.id === payload.id)
-      const newTask = Object.assign({}, ...currentTask, { id: Math.random() })
+      const [currentTask] = state.tasks.filter((task) => task.id === payload.id)
+      const newTask = { ...currentTask, id: Math.random() }
+
       return {
         ...state,
         tasks: [...state.tasks, newTask]
