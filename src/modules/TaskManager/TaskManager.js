@@ -1,21 +1,24 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useContext } from 'react'
 
 import {
   Modal,
   Button,
   Paragraph,
   Card,
-  Dropdown,
   Icon,
   List,
-  Checkbox
+  Checkbox,
+  Empty
 } from 'components/elements'
-import { TaskData, TaskList } from './components'
+import { TaskData, TaskList, TaskActions } from './components'
 
-import { mockTasks } from 'utils'
+import { TaskContext } from 'context'
 
 const TaskManager = () => {
   const [modalVisible, setModalVisible] = useState(false)
+
+  const { state } = useContext(TaskContext)
+  const { tasks } = state
 
   const closeModal = useCallback(
     () => setModalVisible(false),
@@ -23,51 +26,36 @@ const TaskManager = () => {
   )
   const openModal = useCallback(() => setModalVisible(true), [setModalVisible])
 
-  const data = mockTasks
-  const tasks = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]
-
   return (
     <>
-      <TaskList>
-        {tasks.map(({ id }) => (
-          <Card
-            key={id}
-            accent="var(--black)"
-            title="Data at risk"
-            icon={
-              <Icon
-                width={2.4}
-                height={2.4}
-                name="caution"
-                fill="var(--white)"
-              />
-            }
-            extra={
-              <Dropdown
-                trigger={(handler) => (
-                  <Button
-                    variant="ghost"
-                    icon="more"
-                    shape="square"
-                    onClick={handler}
-                  >
-                    Button
-                  </Button>
-                )}
-              >
-                <Dropdown.Item icon="copy">Duplicate</Dropdown.Item>
-                <Dropdown.Item icon="edit">Edit</Dropdown.Item>
-                <Dropdown.Item icon="delete">Delete</Dropdown.Item>
-              </Dropdown>
-            }
-            footer={<Button onClick={openModal}>Open modal</Button>}
-          >
-            {data.map(({ id, ...task }) => (
-              <TaskData key={id} task={task} />
-            ))}
-          </Card>
-        ))}
-      </TaskList>
+      {tasks.length > 0 ? (
+        <TaskList>
+          {tasks.map(({ id, ...task }) => (
+            <Card
+              key={id}
+              accent="var(--black)"
+              title="Data at risk"
+              icon={
+                <Icon
+                  width={2.4}
+                  height={2.4}
+                  name="caution"
+                  fill="var(--white)"
+                />
+              }
+              extra={<TaskActions id={id} />}
+              footer={<Button onClick={openModal}>Open modal</Button>}
+            >
+              {task.fields.map((field) => (
+                <TaskData key={field.title} taskData={field} />
+              ))}
+            </Card>
+          ))}
+        </TaskList>
+      ) : (
+        <Empty description="No tasks" />
+      )}
+
       <Modal
         visible={modalVisible}
         title="Lorem ipsum dolor sit amet"
