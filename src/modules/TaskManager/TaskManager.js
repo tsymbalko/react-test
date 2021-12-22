@@ -5,21 +5,19 @@ import {
   Button,
   Paragraph,
   Card,
-  Dropdown,
   Icon,
   List,
   Checkbox,
   Empty
 } from 'components/elements'
-import { TaskData, TaskList } from './components'
+import { TaskData, TaskList, TaskActions } from './components'
 
 import { TaskContext } from 'context'
-import { editTask, duplicateTask, deleteTask } from 'actions'
 
 const TaskManager = () => {
   const [modalVisible, setModalVisible] = useState(false)
 
-  const { state, dispatch } = useContext(TaskContext)
+  const { state } = useContext(TaskContext)
   const { tasks } = state
 
   const closeModal = useCallback(
@@ -45,39 +43,7 @@ const TaskManager = () => {
                   fill="var(--white)"
                 />
               }
-              extra={
-                <Dropdown
-                  trigger={(handler) => (
-                    <Button
-                      variant="ghost"
-                      icon="more"
-                      shape="square"
-                      onClick={handler}
-                    >
-                      Button
-                    </Button>
-                  )}
-                >
-                  <Dropdown.Item
-                    icon="copy"
-                    onClick={() => dispatch(duplicateTask(id))}
-                  >
-                    Duplicate
-                  </Dropdown.Item>
-                  <Dropdown.Item
-                    icon="edit"
-                    onClick={() => dispatch(editTask())}
-                  >
-                    Edit
-                  </Dropdown.Item>
-                  <Dropdown.Item
-                    icon="delete"
-                    onClick={() => dispatch(deleteTask(id))}
-                  >
-                    Delete
-                  </Dropdown.Item>
-                </Dropdown>
-              }
+              extra={<TaskActions id={id} />}
               footer={<Button onClick={openModal}>Open modal</Button>}
             >
               {task.fields.map((field) => (
