@@ -2,8 +2,8 @@ import PropTypes from 'prop-types'
 
 import { Wrapper, Title, Row, Text, Value, Content } from './TaskData.styles'
 
-const TaskData = ({ task }) => {
-  const { title, data } = task
+const TaskData = ({ taskData }) => {
+  const { title, data } = taskData
   return (
     <Wrapper>
       <Title>{title}:</Title>
@@ -20,7 +20,7 @@ const TaskData = ({ task }) => {
 }
 
 TaskData.propTypes = {
-  task: PropTypes.shape({
+  taskData: PropTypes.shape({
     title: PropTypes.string.isRequired,
     data: PropTypes.arrayOf(
       PropTypes.shape({

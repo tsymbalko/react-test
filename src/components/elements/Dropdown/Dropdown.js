@@ -25,12 +25,12 @@ const DropdownItem = ({ icon, children, onClick }) => (
 
 const Dropdown = ({ children, trigger }) => {
   const menuWrapper = useRef(null)
-  const [menuVisible, setMenuVisible] = useState(false)
+  const [isMenuVisible, setMenuVisible] = useState(false)
 
   const closeMenu = useCallback(() => setMenuVisible(false), [setMenuVisible])
   const toggleMenu = useCallback(
-    () => setMenuVisible(!menuVisible),
-    [menuVisible, setMenuVisible]
+    () => setMenuVisible(!isMenuVisible),
+    [isMenuVisible, setMenuVisible]
   )
 
   useOutsideClick(menuWrapper, closeMenu)
@@ -40,7 +40,7 @@ const Dropdown = ({ children, trigger }) => {
       {trigger(toggleMenu)}
       <CSSTransition
         nodeRef={menuWrapper}
-        in={menuVisible}
+        in={isMenuVisible}
         timeout={300}
         appear
         unmountOnExit

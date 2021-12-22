@@ -7,5 +7,17 @@ import { List } from './List/List'
 import { Logo } from './Logo/Logo'
 import { Modal } from './Modal/Modal'
 import { Paragraph } from './Paragraph/Paragraph'
+import { Empty } from './Empty/Empty'
 
-export { Button, Card, Checkbox, Dropdown, Icon, List, Modal, Logo, Paragraph }
+export {
+  Button,
+  Card,
+  Checkbox,
+  Dropdown,
+  Icon,
+  List,
+  Modal,
+  Logo,
+  Paragraph,
+  Empty
+}

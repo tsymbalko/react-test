@@ -1,0 +1,5 @@
+const EDIT = 'EDIT'
+const DUPLICATE = 'DUPLICATE'
+const DELETE = 'DELETE'
+
+export { EDIT, DUPLICATE, DELETE }
