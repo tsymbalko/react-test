@@ -13,7 +13,7 @@ import {
 } from 'components/elements'
 import { TaskData, TaskList } from './components'
 
-import { TaskContext } from 'context.js'
+import { TaskContext } from 'context'
 import { EDIT, DUPLICATE, DELETE } from 'actions'
 
 const TaskManager = () => {
