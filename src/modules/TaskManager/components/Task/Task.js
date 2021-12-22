@@ -27,7 +27,7 @@ const Task = ({ task, footer }) => {
 
 Card.propTypes = {
   task: PropTypes.objectOf({
-    id: PropTypes.string,
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     title: PropTypes.string,
     fields: PropTypes.arrayOf(
       PropTypes.shape({
