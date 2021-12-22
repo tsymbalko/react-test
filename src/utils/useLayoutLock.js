@@ -25,8 +25,8 @@ const useLayoutLock = (isVisible) => {
     }
 
     return () => {
-      const hasLockClass = body.classList.contains('is-locked')
-      if (hasLockClass) {
+      const hasLockClassName = body.classList.contains('is-locked')
+      if (hasLockClassName) {
         unlcokLayout()
       }
     }
