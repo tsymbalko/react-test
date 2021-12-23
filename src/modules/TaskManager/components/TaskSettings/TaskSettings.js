@@ -2,7 +2,14 @@ import PropTypes from 'prop-types'
 
 import { Button, Checkbox, List, Modal, Paragraph } from 'components/elements'
 
+import { mockTaskSetting } from 'utils'
+
 const TaskSettings = ({ isVisible, onClose }) => {
+  const changeSettingsHandle = (event) => {
+    const { name, checked } = event.target
+    console.log({ [name]: checked })
+  }
+
   return (
     <Modal
       visible={isVisible}
@@ -33,15 +40,15 @@ const TaskSettings = ({ isVisible, onClose }) => {
         neque, ac ornare libero tempor placerat.
       </Paragraph>
       <List mt="1.6rem" mb="1.6rem" flexDirection="column">
-        <List.Item>
-          <Checkbox label="Quisque tincidunt efficitur tempor" />
-        </List.Item>
-        <List.Item>
-          <Checkbox label="Proin pellentesque dictum mauris sed lobortis" />
-        </List.Item>
-        <List.Item>
-          <Checkbox label="Etiam nec mollis elit" />
-        </List.Item>
+        {mockTaskSetting.slice(0, 3).map(({ name, label, value }) => (
+          <List.Item key={name}>
+            <Checkbox
+              label={label}
+              name={name}
+              onChange={changeSettingsHandle}
+            />
+          </List.Item>
+        ))}
       </List>
       <Paragraph mb="0.8rem" fontSize="1rem">
         Curabitur in pharetra ante. Aliquam in neque tristique, fermentum elit
@@ -56,15 +63,15 @@ const TaskSettings = ({ isVisible, onClose }) => {
         neque, ac ornare libero tempor placerat.
       </Paragraph>
       <List mt="0.8rem" mb="0.8rem" flexDirection="row">
-        <List.Item>
-          <Checkbox label="Efficitur" />
-        </List.Item>
-        <List.Item>
-          <Checkbox label="Lacinia" />
-        </List.Item>
-        <List.Item>
-          <Checkbox label="Lacinia" />
-        </List.Item>
+        {mockTaskSetting.slice(3, 6).map(({ name, label, value }) => (
+          <List.Item key={name}>
+            <Checkbox
+              label={label}
+              name={name}
+              onChange={changeSettingsHandle}
+            />
+          </List.Item>
+        ))}
       </List>
     </Modal>
   )
