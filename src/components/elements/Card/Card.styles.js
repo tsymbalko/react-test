@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import decal from './img/decal.svg'
+import decal from 'assets/card-decal.svg'
 
 export const Wrapper = styled.div`
   --accent-color: ${({ accent }) => accent};
