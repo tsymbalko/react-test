@@ -8,8 +8,9 @@ import { TaskContext } from 'context'
 const TaskManager = () => {
   const [isModalVisible, setModalVisible] = useState(false)
 
-  const { state } = useContext(TaskContext)
-  const { tasks } = state
+  const {
+    state: { tasks }
+  } = useContext(TaskContext)
 
   const closeModal = useCallback(
     () => setModalVisible(false),

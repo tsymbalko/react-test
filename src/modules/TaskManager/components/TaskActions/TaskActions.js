@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useCallback } from 'react'
 import PropTypes from 'prop-types'
 
 import { Button, Dropdown } from 'components/elements'
@@ -8,6 +8,13 @@ import { TaskContext } from 'context'
 const TaskActions = ({ id }) => {
   const { dispatch } = useContext(TaskContext)
 
+  const duplicateTaskAction = useCallback(
+    () => dispatch(duplicateTask(id)),
+    [id]
+  )
+  const editTaskAction = useCallback(() => dispatch(editTask(id)), [id])
+  const deleteTaskAction = useCallback(() => dispatch(deleteTask(id)), [id])
+
   return (
     <Dropdown
       trigger={(handler) => (
@@ -16,13 +23,13 @@ const TaskActions = ({ id }) => {
         </Button>
       )}
     >
-      <Dropdown.Item icon="copy" onClick={() => dispatch(duplicateTask(id))}>
+      <Dropdown.Item icon="copy" onClick={duplicateTaskAction}>
         Duplicate
       </Dropdown.Item>
-      <Dropdown.Item icon="edit" onClick={() => dispatch(editTask())}>
+      <Dropdown.Item icon="edit" onClick={editTaskAction}>
         Edit
       </Dropdown.Item>
-      <Dropdown.Item icon="delete" onClick={() => dispatch(deleteTask(id))}>
+      <Dropdown.Item icon="delete" onClick={deleteTaskAction}>
         Delete
       </Dropdown.Item>
     </Dropdown>

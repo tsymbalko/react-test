@@ -21,7 +21,7 @@ export const taskReducer = (state, action) => {
       }
 
     case EDIT_TASK:
-      console.log('EDIT ACTION')
+      console.log(`Edit task id: ${payload.id}`)
       return {
         ...state
       }

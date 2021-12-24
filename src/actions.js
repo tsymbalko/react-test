@@ -4,9 +4,12 @@ const DELETE_TASK = 'DELETE_TASK'
 
 export { EDIT_TASK, DUPLICATE_TASK, DELETE_TASK }
 
-export const editTask = () => {
+export const editTask = (id) => {
   return {
-    type: EDIT_TASK
+    type: EDIT_TASK,
+    payload: {
+      id
+    }
   }
 }
 
