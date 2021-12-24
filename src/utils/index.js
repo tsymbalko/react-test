@@ -1,6 +1,5 @@
 import { useOutsideClick } from './useOutsideClick'
 import { useLayoutLock } from './useLayoutLock'
+import { mockTaskSetting, mockTasks } from './mockData'
 
-import { mockTaskSetting } from './mockData'
-
-export { useOutsideClick, useLayoutLock, mockTaskSetting }
+export { useOutsideClick, useLayoutLock, mockTaskSetting, mockTasks }
